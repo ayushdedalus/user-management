@@ -1,0 +1,84 @@
+<%- include('includes/head.ejs', { title: 'Admin' }) %>
+<style>
+  /* Body styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    text-align: center;
+    
+  }
+
+  /* Header styles */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  /* Main styles */
+  main {
+    margin: 20px;
+    
+  }
+
+  /* Heading styles */
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  /* List styles */
+  #posts-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Profile item styles */
+  .profile-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    
+  }
+
+  .profile-item h5 {
+    margin: 5px 0;
+  }
+
+  .profile-item p {
+    margin: 5px 0;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    main {
+      margin: 10px;
+    }
+  }
+</style>
+</head>
+<body>
+  <%- include('includes/header.ejs') %>
+  <main>
+    <h1>The Admin Page</h1>
+    <ol id="posts-list">
+
+      <% for(const data of profileData){%>
+        <li>
+          <article class="profile-item">
+            <h5>First Name:<%= data.FirstName %></h5>
+            <h5>Last Name:<%= data.LastName %></h5>
+            <p class="profile-item">Address: <%= data.address %></p>
+            <p> Mobile:<%= data.mobile %></p>
+            </article>
+        </li>
+        <%}%>
+    </ol>
+  </main>
+</body>
+</html>
